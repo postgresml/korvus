@@ -37,7 +37,6 @@ Korvus stands out by harnessing the full power of PostgreSQL for RAG operations:
 
 - **Unified Pipeline**: Combine embedding generation, vector search, reranking, and text generation in one query.
 - **Multi-Language Support**: Use Korvus with Python, JavaScript, C, or Rust.
-- **PostgreSQL Integration**: Leverages PostgresML's in-database machine learning capabilities.
 - **High Performance**: Eliminates API calls and data movement for faster processing.
 - **Simplified Architecture**: Replace complex microservices with a single, powerful query.
 - **SQL-Powered**: Under the hood, Korvus operations are powered by efficient SQL queries.
