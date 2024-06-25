@@ -1,8 +1,8 @@
 # Korvus
 
-*One query to rule them all*
+*One query to rule them all, One query to find them, One query to bring them all and in the context bind them*
 
-Korvus is an open-source search SDK that unifies the entire RAG pipeline in a single query. Built for PostgreSQL and available in Python, JavaScript, C, and Rust, Korvus leverages the power of SQL to deliver high-performance, customizable search capabilities.
+Korvus is a search SDK that unifies the entire RAG pipeline in a single database query. Built on top of Postgres with bindings for Python, JavaScript and Rust, Korvus delivers high-performance, customizable search capabilities with minimal infrastructure concerns.
 
 <details open>
 <summary><b>📕 Table of Contents</b></summary>
@@ -21,25 +21,26 @@ Korvus is an open-source search SDK that unifies the entire RAG pipeline in a si
 
 ## 🦅 What is Korvus?
 
-Korvus is an all-in-one, open-source RAG (Retrieval-Augmented Generation) pipeline built for PostgreSQL. It combines LLMs, vector memory, embedding generation, reranking, and pruning models into a single, efficient query, maximizing performance and simplifying your search architecture.
+Korvus is an all-in-one, open-source RAG (Retrieval-Augmented Generation) pipeline built for Postgres. It combines LLMs, vector memory, embedding generation, reranking, summarization and custom models into a single query, maximizing performance and simplifying your search architecture.
 
 ## 🏆 Why Korvus?
 
-Korvus stands out by harnessing the full power of PostgreSQL for RAG operations:
+Korvus stands out by harnessing the full power of Postgres for RAG operations:
 
-1. **PostgreSQL-Native RAG**: Korvus leverages PostgreSQL's robust capabilities, allowing you to perform complex RAG operations directly within your database. This approach eliminates the need for external services and API calls, significantly reducing latency and complexity.
+1. **Postgres-Native RAG**: Korvus leverages Postgres' robust capabilities, allowing you to perform complex RAG operations directly within your database. This approach eliminates the need for external services and API calls, significantly reducing latency and complexity many times over.
 
 2. **Single Query Efficiency**: With Korvus, your entire RAG pipeline - from embedding generation to text generation - is executed in a single SQL query. This "one query to rule them all" approach simplifies your architecture and boosts performance.
 
-3. **Scalability and Performance**: By building on PostgreSQL, Korvus inherits its excellent scalability and performance characteristics. As your data grows, Korvus grows with it, maintaining high performance even with large datasets.
+3. **Scalability and Performance**: By building on Postgres, Korvus inherits its excellent scalability and performance characteristics. As your data grows, Korvus grows with it, maintaining high performance even with large datasets.
 
 ## ⚡ Key Features
 
+- **Simplified Architecture**: Replace complex service oriented architectures with a single, powerful query.
+- **High Performance**: Eliminates API calls and data movement for faster processing and greater reliability.
+- **Open Source**: Improve your developer experience with open source software and models that run locally in Docker too.
+- **Multi-Language Support**: Use Korvus with Python, JavaScript and Rust. Open an issue to vote for other language support.
 - **Unified Pipeline**: Combine embedding generation, vector search, reranking, and text generation in one query.
-- **Multi-Language Support**: Use Korvus with Python, JavaScript, C, or Rust.
-- **High Performance**: Eliminates API calls and data movement for faster processing.
-- **Simplified Architecture**: Replace complex microservices with a single, powerful query.
-- **SQL-Powered**: Under the hood, Korvus operations are powered by efficient SQL queries.
+- **Postgres-Powered**: Under the hood, Korvus operations are powered by efficient SQL queries on a time-tested database platform.
 
 ## 🧩 System Architecture
 
@@ -49,12 +50,12 @@ Korvus stands out by harnessing the full power of PostgreSQL for RAG operations:
 
 ### 📋 Prerequisites
 
-To use Korvus, you need a PostgreSQL database with pgml and pgvector installed. You have two options:
+To use Korvus, you need a Postgres database with pgml and pgvector installed. You have two options:
 
-1. **Self-hosted**: Set up your own PostgreSQL database with pgml and pgvector.
+1. **Self-hosted**: Set up your own database with pgml and pgvector.
    - For instructions, see our [self-hosting guide]().
 
-2. **Hosted Service**: Use our managed PostgreSQL service with pgml and pgvector pre-installed.
+2. **Hosted Service**: Use our managed Postgres service with pgml and pgvector pre-installed.
    - [Sign up for PostgresML Cloud](https://postgresml.org/signup).
 
 ### 🏁 Quick Start
