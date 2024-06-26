@@ -1,0 +1,28 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0", "patchelf"]
+build-backend = "maturin"
+
+[project]
+name = "korvus"
+requires-python = ">=3.7"
+version = "1.1.1"
+description = "Python SDK is designed to facilitate the development of scalable vector search applications on PostgreSQL databases."
+authors = [
+  {name = "PostgresML",  email = "team@postgresml.org"},
+]
+readme = "./python/README.md"
+keywords = ["postgres","machine learning","vector databases","embeddings"]
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+
+[project.urls]
+Homepage = "https://postgresml.org"
+Repository = "https://github.com/postgresml/korvus"
+Documentation = "https://postgresml.org/docs/api/client-sdk/"
+
+[tool.maturin]
+python-source = "python"
+features = ["pyo3/extension-module"]
