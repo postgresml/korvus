@@ -34,9 +34,9 @@ Korvus is an all-in-one, open-source RAG (Retrieval-Augmented Generation) pipeli
 Korvus provides SDK support for multiple programming languages, allowing you to integrate it seamlessly into your existing tech stack:
 
 - Python: [PyPI Package](https://pypi.org/project/korvus/)
-- JavaScript: [npm Package]()
-- Rust: [Crates.io Package]()
-- C: Build from source
+- JavaScript: [npm Package](https://www.npmjs.com/package/korvus)
+- Rust: [Crates.io Package](https://crates.io/crates/korvus)
+- C: [Build from source](https://postgresml.org/docs/api/client-sdk/)
 
 ## 🏆 Why Korvus?
 
