@@ -1,6 +1,6 @@
-BINARY_NAME=pgml
+BINARY_NAME=korvus
 HEADER=${BINARY_NAME}.h
-PGML_LIB=../target/debug/
+KORVUS_LIB=../target/debug/
 
 bindings:
 	cargo b --features c
@@ -9,10 +9,10 @@ bindings:
 	rustup default stable
 
 build: bindings
-	gcc -Wall -o ./example -Iinclude/ -L${PGML_LIB} -l ${BINARY_NAME} example.c
+	gcc -Wall -o ./example -Iinclude/ -L${KORVUS_LIB} -l ${BINARY_NAME} example.c
 
 run: build
-	LD_LIBRARY_PATH=${PGML_LIB} ./example
+	LD_LIBRARY_PATH=${KORVUS_LIB} ./example
 
 clean:
 	rm ${HEADER}

@@ -2,7 +2,7 @@
 
 This crate provides a number of macros that automatically handle translating mostly vanilla Rust to [Py03](https://github.com/PyO3/pyo3) and [Neon](https://neon-bindings.com/) compatible Rust code.
 
-It is designed to greatly improve the rate at which simultaneously developing libraries for multiple languages can be done. We use it internally for developing our [Rust SDK](https://github.com/postgresml/postgresml/tree/master/pgml-sdks/rust/pgml).
+It is designed to greatly improve the rate at which simultaneously developing libraries for multiple languages can be done. We use it internally for developing our [Rust SDK](https://github.com/postgresml/korvus).
 
 # Overview 
 

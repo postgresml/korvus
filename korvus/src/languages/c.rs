@@ -32,7 +32,7 @@ unsafe impl CustomInto<*mut GeneralJsonIteratorC> for GeneralJsonIterator {
 }
 
 #[no_mangle]
-pub unsafe extern "C" fn pgml_generaljsoniteratorc_done(
+pub unsafe extern "C" fn korvus_generaljsoniteratorc_done(
     iterator: *mut GeneralJsonIteratorC,
 ) -> bool {
     let c = Box::leak(Box::from_raw(iterator));
@@ -40,7 +40,7 @@ pub unsafe extern "C" fn pgml_generaljsoniteratorc_done(
 }
 
 #[no_mangle]
-pub unsafe extern "C" fn pgml_generaljsoniteratorc_next(
+pub unsafe extern "C" fn korvus_generaljsoniteratorc_next(
     iterator: *mut GeneralJsonIteratorC,
 ) -> *mut JsonC {
     let c = Box::leak(Box::from_raw(iterator));
@@ -65,7 +65,7 @@ unsafe impl CustomInto<*mut GeneralJsonAsyncIteratorC> for GeneralJsonAsyncItera
 }
 
 #[no_mangle]
-pub unsafe extern "C" fn pgml_generaljsonasynciteratorc_done(
+pub unsafe extern "C" fn korvus_generaljsonasynciteratorc_done(
     iterator: *mut GeneralJsonAsyncIteratorC,
 ) -> bool {
     crate::get_or_set_runtime().block_on(async move {
@@ -78,7 +78,7 @@ pub unsafe extern "C" fn pgml_generaljsonasynciteratorc_done(
 }
 
 #[no_mangle]
-pub unsafe extern "C" fn pgml_generaljsonasynciteratorc_next(
+pub unsafe extern "C" fn korvus_generaljsonasynciteratorc_next(
     iterator: *mut GeneralJsonAsyncIteratorC,
 ) -> *mut JsonC {
     crate::get_or_set_runtime().block_on(async move {
