@@ -73,7 +73,7 @@ pip install korvus
 2. Set the `KORVUS_DATABASE_URL` env variable:
 
 ```bash
-export KORVUS_DATABASE_URL="{YOUR DATABASE CONNECTIONG STRING}"
+export KORVUS_DATABASE_URL="{YOUR DATABASE CONNECTION STRING}"
 ```
 
 3. Initialize a Collection and Pipeline:
