@@ -1,0 +1,33 @@
+{
+  "name": "korvus",
+  "version": "1.1.1",
+  "description": "Open Source Alternative for Building End-to-End Vector Search Applications without OpenAI & Pinecone",
+  "keywords": [
+    "postgres",
+    "machine learning",
+    "vector databases",
+    "embeddings"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "build": "node build.js",
+    "build-release": "node build.js --release"
+  },
+  "author": {
+    "name": "PostgresML",
+    "email": "team@postgresml.org",
+    "url": "https://postgresml.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/postgresml/korvus"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.3.1",
+    "cargo-cp-artifact": "^0.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.4"
+  }
+}
