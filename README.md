@@ -62,28 +62,89 @@ To use Korvus, you need a Postgres database with pgml and pgvector installed. Yo
 
 1. Install Korvus:
 
-   ```bash
-   pip install korvus
-   ```
+```bash
+pip install korvus
+```
 
-2. Initialize Korvus with your database connection:
+2. Set the `KORVUS_DATABASE_URL` env variable:
 
-   ```python
-   from korvus import Korvus
+```bash
+export KORVUS_DATABASE_URL="{YOUR DATABASE CONNECTIONG STRING}"
+```
 
-   # For self-hosted:
-   korvus = Korvus(connection_string="postgresql://user:password@localhost/database")
+3. Initialize a Collection and Pipeline:
 
-   # For PostgresML Cloud:
-   korvus = Korvus(connection_string="postgresql://user:password@your-instance.postgresml.org/database")
-   ```
+```python
+from korvus import Collection, Pipeline
+import asyncio
 
-3. Perform a RAG query:
+collection = Collection("korvus-demo-v0")
+pipeline = Pipeline(
+    "v1",
+    {
+        "text": {
+            "splitter": {"model": "recursive_character"},
+            "semantic_search": {"model": "Alibaba-NLP/gte-base-en-v1.5"},
+        }
+    },
+)
 
-   ```python
-   result = korvus.query("What is the capital of France?")
-   print(result)
-   ```
+async def add_pipeline():
+    await collection.add_pipeline(pipeline)
+
+asyncio.run(add_pipeline())
+```
+
+4. Insert documents:
+```python
+async def upsert_documents():
+    documents = [
+        {"id": "1", "text": "Korvus is incredibly fast and easy to use."},
+        {"id": "2", "text": "Tomatoes are incredible on burgers."},
+    ]
+    await collection.upsert_documents(documents)
+
+asyncio.run(upsert_documents())
+```
+
+5. Perform RAG
+```python
+async def rag():
+    query = "Is Korvus fast?"
+    print(f"Querying for response to: {query}")
+    results = await collection.rag(
+        {
+            "CONTEXT": {
+                "vector_search": {
+                    "query": {
+                        "fields": {"text": {"query": query}},
+                    },
+                    "document": {"keys": ["id"]},
+                    "limit": 1,
+                },
+                "aggregate": {"join": "\n"},
+            },
+            "chat": {
+                "model": "meta-llama/Meta-Llama-3-8B-Instruct",
+                "messages": [
+                    {
+                        "role": "system",
+                        "content": "You are a friendly and helpful chatbot",
+                    },
+                    {
+                        "role": "user",
+                        "content": f"Given the context\n:{{CONTEXT}}\nAnswer the question: {query}",
+                    },
+                ],
+                "max_tokens": 100,
+            },
+        },
+        pipeline,
+    )
+    print(results)
+
+asyncio.run(rag())
+```
 
 ## 🔍 The Power of SQL
 
