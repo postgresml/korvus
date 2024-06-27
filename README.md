@@ -166,7 +166,7 @@ Don't worry if you're not a SQL expert - Korvus's intuitive API abstracts away t
 
 ## 📘 Documentation
 
-For comprehensive documentation, including API references, tutorials, and best practices, visit our [official documentation]().
+For comprehensive documentation, including API references, tutorials, and best practices, visit our [official documentation](https://postgresml.org/docs/api/client-sdk/).
 
 ## 🌐 Community
 
