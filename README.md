@@ -61,7 +61,7 @@ Korvus stands out by harnessing the full power of Postgres for RAG operations:
 
 Korvus utilizes PostgresML's pgml extension and the pgvector extension to compress the entire RAG pipeline inside of Postgres.
 
-![Old New Diagram Desktop](https://github.com/postgresml/korvus/assets/19626586/b192e732-e3e9-45e7-a282-2ed5a42e37a9)
+![PostgresML_Old-V-New_Diagram-Update](https://github.com/postgresml/korvus/assets/19626586/53128313-ded8-4b29-91c4-f585db859c23)
 
 ## 🚀 Get Started
 
