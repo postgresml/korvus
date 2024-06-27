@@ -61,7 +61,7 @@ Korvus utilizes PostgresML's pgml extension and the pgvector extension to compre
 To use Korvus, you need a Postgres database with pgml and pgvector installed. You have two options:
 
 1. **Self-hosted**: Set up your own database with pgml and pgvector.
-   - For instructions, see our [self-hosting guide]().
+   - For instructions, see our [self-hosting guide](https://postgresml.org/docs/resources/developer-docs/quick-start-with-docker).
 
 2. **Hosted Service**: Use our managed Postgres service with pgml and pgvector pre-installed.
    - [Sign up for PostgresML Cloud](https://postgresml.org/signup).
@@ -172,8 +172,8 @@ For comprehensive documentation, including API references, tutorials, and best p
 
 Join our community to get help, share ideas, and contribute:
 
-- [Discord]()
-- [Twitter]()
+- [Discord](https://discord.gg/DmyJP3qJ7U)
+- [Twitter](https://x.com/postgresml)
 
 ## 🤝 Contributing
 
