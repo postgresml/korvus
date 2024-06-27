@@ -212,7 +212,7 @@ mod tests {
     #[sqlx::test]
     async fn transformer_pipeline_can_transform() -> anyhow::Result<()> {
         internal_init_logger(None, None).ok();
-        let t = TransformerPipeline::new("translation_en_to_fr", "t5-base", None, None);
+        let t = TransformerPipeline::new("translation_en_to_fr", "google-t5/t5-base", None, None);
         let results = t
             .transform(
                 vec![

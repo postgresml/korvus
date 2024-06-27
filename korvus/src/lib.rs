@@ -364,7 +364,7 @@ mod tests {
     #[tokio::test]
     async fn can_add_pipeline_and_upsert_documents() -> anyhow::Result<()> {
         internal_init_logger(None, None).ok();
-        let collection_name = "test_r_c_capaud_107";
+        let collection_name = "test_r_c_capaud_108";
         let pipeline_name = "0";
         let mut pipeline = Pipeline::new(
             pipeline_name,
@@ -980,7 +980,7 @@ mod tests {
     #[tokio::test]
     async fn can_search_with_local_embeddings() -> anyhow::Result<()> {
         internal_init_logger(None, None).ok();
-        let collection_name = "test_r_c_cswle_123";
+        let collection_name = "test_r_c_cswle_124";
         let mut collection = Collection::new(collection_name, None)?;
         let documents = generate_dummy_documents(10);
         collection.upsert_documents(documents.clone(), None).await?;
@@ -1455,7 +1455,7 @@ mod tests {
     async fn can_vector_search_with_local_embeddings_and_specify_document_keys(
     ) -> anyhow::Result<()> {
         internal_init_logger(None, None).ok();
-        let collection_name = "test r_c_cvswleasdk_0";
+        let collection_name = "test r_c_cvswleasdk_1";
         let mut collection = Collection::new(collection_name, None)?;
         let documents = generate_dummy_documents(2);
         collection.upsert_documents(documents.clone(), None).await?;
@@ -1695,7 +1695,7 @@ mod tests {
     #[tokio::test]
     async fn can_get_document_keys_get_documents() -> anyhow::Result<()> {
         internal_init_logger(None, None).ok();
-        let mut collection = Collection::new("test r_c_cuafgd_1", None)?;
+        let mut collection = Collection::new("test r_c_cgdkgd_1", None)?;
 
         let documents = vec![
             serde_json::json!({"id": 1, "random_key": 10, "nested": {"nested2": "test" } , "text": "hello world 1"}).into(),
