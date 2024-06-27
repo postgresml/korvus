@@ -1,6 +1,10 @@
 # Korvus
 
-*One query to rule them all, One query to find them, One query to bring them all and in the context bind them*
+***One query to rule them all.***
+
+*One query to find them all, One query to bring them all and in the context bind them.*
+
+---
 
 Korvus is a search SDK that unifies the entire RAG pipeline in a single database query. Built on top of Postgres with bindings for Python, JavaScript and Rust, Korvus delivers high-performance, customizable search capabilities with minimal infrastructure concerns.
 
