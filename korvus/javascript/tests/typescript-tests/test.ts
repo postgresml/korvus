@@ -164,6 +164,46 @@ it("can vector search with query builder", async () => {
   await collection.archive();
 });
 
+it("can vector search with re-ranking", async () => {
+  let pipeline = korvus.newPipeline("1", {
+    title: {
+      semantic_search: { model: "intfloat/e5-small-v2", parameters: { prompt: "passage: " } },
+      full_text_search: { configuration: "english" },
+    },
+    body: {
+      splitter: { model: "recursive_character" },
+      semantic_search: {
+        model: "text-embedding-ada-002",
+        source: "openai",
+      },
+    },
+  });
+  let collection = korvus.newCollection("test_j_c_cvswr_0")
+  await collection.add_pipeline(pipeline)
+  await collection.upsert_documents(generate_dummy_documents(5))
+  let results = await collection.vector_search(
+    {
+      query: {
+        fields: {
+          title: { query: "Test document: 2", parameters: { prompt: "query: " }, full_text_filter: "test" },
+          body: { query: "Test document: 2" },
+        },
+        filter: { id: { "$gt": 2 } },
+      },
+      rerank: {
+        model: "mixedbread-ai/mxbai-rerank-base-v1",
+        query: "Test query",
+        num_documents_to_rerank: 100
+      },
+      limit: 5,
+    },
+    pipeline,
+  );
+  let ids = results.map(r => r["document"]["id"]);
+  expect(ids).toEqual([4, 3, 3, 4]);
+  await collection.archive();
+});
+
 ///////////////////////////////////////////////////
 // Test rag ///////////////////////////////////////
 ///////////////////////////////////////////////////
