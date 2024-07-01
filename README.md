@@ -28,7 +28,7 @@ Korvus is a search SDK that unifies the entire RAG pipeline in a single database
 
 Korvus is an all-in-one, open-source RAG (Retrieval-Augmented Generation) pipeline built for Postgres. It combines LLMs, vector memory, embedding generation, reranking, summarization and custom models into a single query, maximizing performance and simplifying your search architecture.
 
-![korvus-demo](https://github.com/postgresml/korvus/assets/19626586/db4795bb-73c3-41d2-a304-a973ff8de1b7)
+![korvus-demo](https://github.com/postgresml/korvus/assets/19626586/9ee9d695-7630-4da7-ab2a-386e20ae4a68)
 
 ## 🔠 Languages
 Korvus provides SDK support for multiple programming languages, allowing you to integrate it seamlessly into your existing tech stack:
