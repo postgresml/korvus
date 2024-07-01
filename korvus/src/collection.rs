@@ -345,7 +345,7 @@ impl Collection {
         let pool = get_or_initialize_pool(&self.database_url).await?;
         let pipelines_table_name = format!("{}.pipelines", project_info.name);
         let exists: bool = sqlx::query_scalar(&query_builder!(
-            "SELECT EXISTS (SELECT id FROM %s WHERE name = $1 AND active = TRUE)",
+            "SELECT EXISTS (SELECT id FROM %s WHERE name = $1)",
             pipelines_table_name
         ))
         .bind(&pipeline.name)

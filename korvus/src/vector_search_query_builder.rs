@@ -45,12 +45,14 @@ const fn default_num_documents_to_rerank() -> u64 {
     10
 }
 
+#[serde_as]
 #[derive(Debug, Deserialize, Serialize, Clone)]
 #[serde(deny_unknown_fields)]
 struct ValidRerank {
     query: String,
     model: String,
     #[serde(default = "default_num_documents_to_rerank")]
+    #[serde_as(as = "FromInto<CustomU64Convertor>")]
     num_documents_to_rerank: u64,
     parameters: Option<Json>,
 }
@@ -61,7 +63,7 @@ const fn default_limit() -> u64 {
 
 #[serde_as]
 #[derive(Debug, Deserialize, Serialize, Clone)]
-// #[serde(deny_unknown_fields)]
+#[serde(deny_unknown_fields)]
 pub struct ValidQuery {
     query: ValidQueryActions,
     // Need this when coming from JavaScript as everything is an f64 from JS

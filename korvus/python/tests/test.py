@@ -212,6 +212,60 @@ async def test_can_vector_search_with_query_builder():
     await collection.archive()
 
 
+@pytest.mark.asyncio
+async def test_can_vector_search_with_rerank():
+    pipeline = korvus.Pipeline(
+        "test_p_p_tcvswr_0",
+        {
+            "title": {
+                "semantic_search": {
+                    "model": "intfloat/e5-small-v2",
+                    "parameters": {"prompt": "passage: "},
+                },
+                "full_text_search": {"configuration": "english"},
+            },
+            "text": {
+                "splitter": {"model": "recursive_character"},
+                "semantic_search": {
+                    "model": "intfloat/e5-small-v2",
+                    "parameters": {"prompt": "passage: "},
+                },
+            },
+        },
+    )
+    collection = korvus.Collection("test_p_c_tcvs_3")
+    await collection.add_pipeline(pipeline)
+    await collection.upsert_documents(generate_dummy_documents(5))
+    results = await collection.vector_search(
+        {
+            "query": {
+                "fields": {
+                    "title": {
+                        "query": "Test document: 2",
+                        "parameters": {"prompt": "passage: "},
+                        "full_text_filter": "test",
+                    },
+                    "text": {
+                        "query": "Test document: 2",
+                        "parameters": {"prompt": "passage: "},
+                    },
+                },
+                "filter": {"id": {"$gt": 2}},
+            },
+            "rerank": {
+                "model": "mixedbread-ai/mxbai-rerank-base-v1",
+                "query": "Test query",
+                "num_documents_to_rerank": 100,
+            },
+            "limit": 5,
+        },
+        pipeline,
+    )
+    ids = [result["document"]["id"] for result in results]
+    assert ids == [3, 3, 4, 4]
+    await collection.archive()
+
+
 ###################################################
 ## Test RAG #######################################
 ###################################################
