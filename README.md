@@ -1,8 +1,20 @@
-# Korvus
+<div align="center">
+   <picture>
+     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/postgresml/korvus/assets/19626586/54dda262-861b-4751-a3ce-0790762f3cbe">
+     <source media="(prefers-color-scheme: light)" srcset="https://github.com/postgresml/korvus/assets/19626586/f567ce57-35b2-4411-8e43-5f0887a938cb">
+     <img alt="Logo" src="" width="520">
+   </picture>
+</div>
 
-***One query to rule them all.***
+<p align="center">
+   <p align="center"><b>One query to rule them all</b></p>
+</p>
 
-*One query to find them all, One query to bring them all and in the context bind them.*
+<p align="center">
+   <a href="https://discord.gg/DmyJP3qJ7U">
+        <img src="https://img.shields.io/badge/Discord-%235865F2.svg" alt="Discord">
+    </a>
+</p>
 
 ---
 
