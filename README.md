@@ -11,9 +11,7 @@
 </p>
 
 <p align="center">
-   <a href="https://discord.gg/DmyJP3qJ7U">
-        <img src="https://img.shields.io/badge/Discord-%235865F2.svg" alt="Discord">
-    </a>
+| <a href="https://postgresml.org/docs/open-source/korvus"><b>Documentation</b></a> | <a href="https://postgresml.org/blog"><b>Blog</b></a> | <a href="https://discord.gg/DmyJP3qJ7U"><b>Discord</b></a> |
 </p>
 
 ---
