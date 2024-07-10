@@ -24,7 +24,7 @@ Korvus is a search SDK that unifies the entire RAG pipeline in a single database
 
 </details>
 
-https://github.com/postgresml/korvus/assets/19626586/a1dbcfaf-06cc-4c02-a29f-45fc3f8d9a5e
+https://github.com/postgresml/korvus/assets/19626586/2b697dc6-8c38-41a7-8c8e-ef158dacb29b
 
 ## 🦅 What is Korvus?
 
