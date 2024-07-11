@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-| <a href="https://postgresml.org/docs/open-source/korvus"><b>Documentation</b></a> | <a href="https://postgresml.org/blog"><b>Blog</b></a> | <a href="https://discord.gg/DmyJP3qJ7U"><b>Discord</b></a> |
+| <a href="https://postgresml.org/docs/open-source/korvus/"><b>Documentation</b></a> | <a href="https://postgresml.org/blog"><b>Blog</b></a> | <a href="https://discord.gg/DmyJP3qJ7U"><b>Discord</b></a> |
 </p>
 
 ---
