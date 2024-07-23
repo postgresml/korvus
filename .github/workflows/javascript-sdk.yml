@@ -11,10 +11,6 @@ jobs:
             "windows-latest",
           ]
         include:
-          - neon-out-name: "x86_64-unknown-linux-gnu-index.node"
-            os: "ubuntu-22.04"
-          - neon-out-name: "aarch64-unknown-linux-gnu-index.node"
-            os: "buildjet-4vcpu-ubuntu-2204-arm"
           - neon-out-name: "x86_64-apple-darwin-index.node"
             os: "macos-latest"
           - neon-out-name: "x86_64-pc-windows-gnu-index.node"
@@ -54,11 +50,13 @@ jobs:
           ]
         include:
           - neon-out-name: "x86_64-unknown-linux-gnu-index.node"
+            container: "quay.io/pypa/manylinux_2_28_x86_64:latest"
             os: "ubuntu-22.04"
           - neon-out-name: "aarch64-unknown-linux-gnu-index.node"
+            container: "quay.io/pypa/manylinux2014_aarch64:latest"
             os: "buildjet-4vcpu-ubuntu-2204-arm"
     runs-on: ubuntu-latest
-    container: quay.io/pypa/manylinux2014_x86_64
+    container: ${{ matrix.container }}
     defaults:
       run:
         working-directory: korvus/javascript
