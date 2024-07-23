@@ -28,55 +28,6 @@ pub struct OpenSourceAI {
     database_url: Option<String>,
 }
 
-fn try_model_nice_name_to_model_name_and_parameters(
-    model_name: &str,
-) -> Option<(&'static str, Json)> {
-    match model_name {
-        "meta-llama/Meta-Llama-3-8B-Instruct" => Some((
-            "meta-llama/Meta-Llama-3-8B-Instruct",
-            serde_json::json!({
-                "task": "conversational",
-                "model": "meta-llama/Meta-Llama-3-8B-Instruct"
-            })
-            .into(),
-        )),
-        "meta-llama/Meta-Llama-3-70B-Instruct" => Some((
-            "meta-llama/Meta-Llama-3-70B-Instruct",
-            serde_json::json!({
-                "task": "conversational",
-                "model": "meta-llama/Meta-Llama-3-70B-Instruct"
-            })
-            .into(),
-        )),
-        "microsoft/Phi-3-mini-128k-instruct" => Some((
-            "microsoft/Phi-3-mini-128k-instruct",
-            serde_json::json!({
-                "task": "conversational",
-                "model": "microsoft/Phi-3-mini-128k-instruct"
-            })
-            .into(),
-        )),
-        "mistralai/Mixtral-8x7B-Instruct-v0.1" => Some((
-            "mistralai/Mixtral-8x7B-Instruct-v0.1",
-            serde_json::json!({
-                "task": "conversational",
-                "model": "mistralai/Mixtral-8x7B-Instruct-v0.1"
-            })
-            .into(),
-        )),
-        "mistralai/Mistral-7B-Instruct-v0.2" => Some((
-            "mistralai/Mistral-7B-Instruct-v0.2",
-            serde_json::json!({
-                "task": "conversational",
-                "model": "mistralai/Mistral-7B-Instruct-v0.2"
-            })
-            .into(),
-        )),
-
-        _ => None,
-    }
-}
-
 struct AsyncToSyncJsonIterator(std::pin::Pin<Box<dyn Stream<Item = anyhow::Result<Json>> + Send>>);
 
 impl Iterator for AsyncToSyncJsonIterator {
@@ -141,21 +92,25 @@ impl OpenSourceAI {
             let model_name = model
                 .as_str()
                 .context("`model` must either be a string or an object")?;
-            let (real_model_name, parameters) =
-                try_model_nice_name_to_model_name_and_parameters(model_name).context(
-                    r#"Please select one of the provided models: 
-mistralai/Mistral-7B-v0.1
-"#,
-                )?;
             Ok((
                 TransformerPipeline::new(
                     "conversational",
-                    real_model_name,
-                    Some(parameters.clone()),
+                    model_name,
+                    Some(
+                        serde_json::json!({
+                            "task": "conversational",
+                            "model": model_name
+                        })
+                        .into(),
+                    ),
                     self.database_url.clone(),
                 ),
                 model_name.to_string(),
-                parameters,
+                serde_json::json!({
+                    "task": "conversational",
+                    "model": model_name
+                })
+                .into(),
             ))
         }
     }
