@@ -37,7 +37,7 @@ jobs:
       - name: Upload built .node file
         uses: actions/upload-artifact@v4
         with:
-          name: node-artifacts
+          name: node-artifacts-${{ matrix.os }}
           path: korvus/javascript/dist/${{ matrix.neon-out-name }}
           retention-days: 1
   build-javascript-sdk-linux:
@@ -85,7 +85,7 @@ jobs:
       - name: Upload built .node file
         uses: actions/upload-artifact@v4
         with:
-          name: node-artifacts
+          name: node-artifacts-${{ matrix.os }}
           path: korvus/javascript/dist/${{ matrix.neon-out-name }}
           retention-days: 1
   # publish-javascript-sdk:
