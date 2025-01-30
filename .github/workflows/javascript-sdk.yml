@@ -35,7 +35,7 @@ jobs:
           npm i 
           npm run build-release
       - name: Upload built .node file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: node-artifacts
           path: korvus/javascript/dist/${{ matrix.neon-out-name }}
@@ -62,7 +62,7 @@ jobs:
       run:
         working-directory: korvus/javascript
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install dependencies
         run: |
           yum install -y perl-IPC-Cmd
@@ -83,7 +83,7 @@ jobs:
           npm i 
           npm run build-release
       - name: Upload built .node file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: node-artifacts
           path: korvus/javascript/dist/${{ matrix.neon-out-name }}
